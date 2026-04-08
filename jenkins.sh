@@ -14,3 +14,20 @@ echo '/var/tmp_disk /tmp none bind 0 0' | sudo tee -a /etc/fstab
 sudo systemctl mask tmp.mount
 timeout 5 df -h /tmp
 sudo systemctl restart jenkins
+
+
+
+   44  umount /tmp
+   45  ll
+   46  rm -rf /tmp
+   47  sudo rm -rf /tmp
+   48  sudo mkdir /tmp
+   49  sudo chmod 1777 /tmp
+   50  # 1. Fix filesystem
+   51  sudo mount -o remount,rw /
+   52  # 2. Fix /tmp
+   53  sudo chmod 1777 /tmp
+   54  # 3. Restart Jenkins
+   55  sudo systemctl restart jenkins
+   56  systemctl status jenkins
+   57  history
